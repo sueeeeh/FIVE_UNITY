@@ -8,11 +8,14 @@ public class PlayerControl : MonoBehaviour
 
     public TextMeshProUGUI tmp;
     int score;
+    public GameObject[] je;
 
     // Start is called before the first frame update
     void Start()
     {
         score=0;
+        GameObject[] je =  GameObject.FindGameObjectsWithTag("JELLYBASIC");
+        print(je.Length);
 
     }
 
@@ -35,9 +38,14 @@ public class PlayerControl : MonoBehaviour
         if(transform.position.x > 10f){
             Vector3 vec = new Vector3(-9.5f,0,0);
             transform.position = vec;
-            // if(CompareTag("JELLY")){
-            //     gameObject.SetActive(true);
-            // } 
+
+            // GameObject.FindWithTag("JELLY").SetActive(true);
+
+            //GameObject[] je =  GameObject.FindGameObjectsWithTag("JELLYBASIC");
+            //print(je.Length);
+            for(int i=0;i<je.Length;i++){
+                je[i].SetActive(true);
+            }
         }
     }
 
